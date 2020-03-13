@@ -1,7 +1,7 @@
 {
     "name": "hrp/pop-sign",
     "license": "MIT",
-    "type": "project",
+    "type": "library",
     "description": "Generate aliyun pop signature",
     "authors": [
         {
