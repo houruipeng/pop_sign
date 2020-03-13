@@ -1,0 +1,16 @@
+{
+    "name": "hrp/pop-sign",
+    "description": "Generate aliyun pop signature",
+    "authors": [
+        {
+            "name": "hrp",
+            "email": "565792893@qq.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "hrp\\pop\\": "src/"
+        }
+    }
+}
