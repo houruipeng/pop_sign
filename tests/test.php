@@ -16,7 +16,7 @@ $data=[
 	'Header'=>array('Content-Type:application/x-www-form-urlencoded','charset=utf-8'),
 	'Body'=>['name'=>'jack','from'=>'beijing']
 ];
-
-$pop=new Pop();
+$accessSecret='填写你的秘钥';
+$pop=new Pop($accessSecret);
 $data=$pop->composeUrl($data);
 print_r($data);

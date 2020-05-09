@@ -21,8 +21,16 @@ class Pop{
 
 	private $Timeout = 3000;
 
-	public function test(){
-		echo 13;
+	//秘钥
+	private $accessSecret='';
+
+	/**
+	 * Pop constructor.
+	 *
+	 * @param string $accessSecret
+	 */
+	public function __construct(string $accessSecret){
+		$this->accessSecret = $accessSecret;
 	}
 
 	public function composeUrl(array $apiParams){
@@ -68,13 +76,13 @@ class Pop{
 			$canonicalizedQueryString .= '&'.$this->percentEncode($key).'='.$this->percentEncode($value);
 		}
 		$stringToSign = $this->method.'&%2F&'.$this->percentencode(substr($canonicalizedQueryString, 1));
-		$signature = $this->signString($stringToSign, $parameters['AccessKeyId']."&");
+		$signature = $this->signString($stringToSign);
 
 		return $signature;
 	}
 
-	private function signString($source, $accessSecret){
-		return base64_encode(hash_hmac('sha1', $source, $accessSecret, true));
+	private function signString($source){
+		return base64_encode(hash_hmac('sha1', $source, $this->accessSecret.'&', true));
 	}
 
 	/**
