@@ -44,11 +44,7 @@ class Pop{
 		&& $apiParams['Body'] = json_encode
 		($apiParams['Body'], JSON_UNESCAPED_UNICODE);
 
-		$this->method = $apiParams['Method'] ?? 'POST';
-		$this->method = $apiParams['Method'] ?? 'POST';
-
-		$apiParams["Action"] = $apiParams['Action'] ?? 'insert';
-		$apiParams["AccessKeyId"] = $apiParams['AccessKeyId'] ?? '321311';
+		$apiParams['Method'] = $apiParams['Method'] ?? 'POST';
 
 		$apiParams["Timestamp"] = (new \DateTime())->format("Y-m-d\TH:i:s\Z");
 		$apiParams["Version"] = $this->Version;
@@ -57,7 +53,6 @@ class Pop{
 		$apiParams["SignatureMethod"] = $this->SignatureMethod;
 		$apiParams['SignatureVersion'] = $this->SignatureVersion;
 
-		$apiParams['Method'] = $this->method;
 		$apiParams['Timeout'] = $apiParams['Timeout'] ?? $this->Timeout;
 
 		foreach($apiParams as $key => $value){
